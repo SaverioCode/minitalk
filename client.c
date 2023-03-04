@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 01:11:18 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/04 01:45:50 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/04 02:07:37 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	ft_sender(int pid, char *str)
 {
 	int	offset;
 
+	if (str[0] = 37 && str[1] == 64 && !str[2])
+	{
+		write(1, "Bye!\n", 5);
+		exit(0);
+	}
 	while (*str)
 	{
 		offset = -1;
