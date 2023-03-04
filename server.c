@@ -6,14 +6,15 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 01:08:52 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/03 01:19:58 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/04 02:10:13 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_minitalk.h"
 
-int	main()
+int	main(void)
 {
 	ft_printf("%d\n", getpid());
+	pause();
 	return (0);
 }
