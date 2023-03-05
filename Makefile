@@ -10,11 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = lib_minitalk.a
 NAME_S = server
 NAME_C = client
 NAME_FT_PF = ./ft_printf/libftprintf.a
-SRCS = server.c client.c ft_atoi.c
+SRCS = server.c client.c
 SERVER = server.c
 CLIENT = client.c
 OBJS = $(SRCS:.c=.o)
@@ -24,7 +23,6 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(%.c)
 	@$(CC) $(CFLAGS) -c $(SRCS)
 	@make -C ./ft_printf
-	@ar rcs $(NAME) $(OBJS)
 	@$(CC) $(CFLAGS) $(NAME) $(SERVER) $(NAME_FT_PF) -o $(NAME_S)
 	@$(CC) $(CFLAGS) $(NAME) $(CLIENT) $(NAME_FT_PF) -o $(NAME_C)
 
@@ -36,7 +34,7 @@ clean:
 	@make clean -C ./ft_printf
 	
 fclean: clean
-	@rm -f $(NAME) $(NAME_C) $(NAME_S)
+	@rm -f $(NAME_C) $(NAME_S)
 	@make fclean -C ./ft_printf
 	
 re: fclean all
