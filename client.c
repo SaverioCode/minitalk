@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 01:11:18 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/04 21:08:48 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/06 20:26:16 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,25 @@ void	ft_sender(int pid, char *str)
 				kill(pid, SIGUSR2);
 			else
 				kill(pid, SIGUSR1);
-			usleep(500);
+			usleep(100);
 		}
 		str++;
 	}
 	while (--offset >= 0)
 	{
 		kill(pid, SIGUSR1);
-		usleep(500);
+		usleep(100);
 	}
-//	usleep(300);
 }
 
 int	main(int ac, char **av)
 {
-	struct sigaction	sa;
-
 	if (ac != 3)
 	{
 		write(1, "Error. Input type: <PID> <STRING>\n", 35);
 		return (0);
 	}
+	signal(SIGUSR2, ft_recive);
 	ft_sender(ft_atoi(av[1]), av[2]);
-	sa.sa_flags = SA_SIGINFO;
-	sa.sa_sigaction = (void *)ft_recive;
-	sigaction(SIGUSR2, &sa, NULL);
-	pause();
 	return (0);
 }
-
